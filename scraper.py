@@ -1,15 +1,16 @@
 import os
+#import bs4
 from bs4 import BeautifulSoup
 import urllib.request
 from urllib.parse import urljoin
 # From the APOD archive, follow each link, find the image and save it
 
-# URLLIB
+# URLLIB. NAME YOUR DIRECTORY.
 base_url = "http://apod.nasa.gov/apod/archivepix.html"
-download_directory = "apod_pix"
+download_directory = "DIRECTORY_NAME"
 content = urllib.request.urlopen(base_url).read()
 
-# BEAUTIFULSOUP
+# BEAUTIFULSOUP4
 for link in BeautifulSoup(content, "lxml").findAll("a"):
     print("Following link:", link)
     href = urljoin(base_url, link["href"])
